@@ -1,0 +1,35 @@
+<%= render :partial => 'spree/admin/shared/configuration_menu' %>
+
+<% content_for :page_title do %>
+  <%= Spree.t(:listing_banks) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <li>
+    <%= button_link_to Spree.t(:new_bank), new_admin_bank_path %>
+  </li>
+<% end %>
+
+<%= paginate @banks %>
+
+<table class='index'>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Account No</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @banks.each do |bank| %>
+      <tr class="<%= cycle('odd', 'even') %>">
+        <td class="align-center"><%= bank.name %></td>
+        <td class="align-center"><%= bank.account_no %></td>
+        <td class="align-center" id='active-status-<%= bank.id %>'><%= bank_status(bank) %></td>
+        <td class="actions"><%= link_to action_to_toggle_bank_status(bank), toggle_activation_admin_bank_path(bank), :remote => true, :method => :put %></td>
+        <td class="actions"><%= link_to_edit bank, :no_text => true, :class => 'edit' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

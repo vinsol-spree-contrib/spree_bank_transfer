@@ -1,0 +1,13 @@
+<%= render :partial => 'spree/admin/shared/configuration_menu' %>
+
+<% content_for :page_title do %>
+  <%= Spree.t(:new_bank) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <li>
+    <%= button_link_to Spree.t(:back_to_banks_list), admin_banks_path, :icon => 'icon-arrow-left' %>
+  </li>  
+<% end %>
+
+<%= render :partial => 'form' %>    
