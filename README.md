@@ -1,7 +1,8 @@
 SpreeBankTransfer
 =================
 
-Introduction goes here.
+This extension allows admin to provide bank transfer payment method to its users.
+
 
 Installation
 ------------
@@ -18,6 +19,14 @@ Bundle your dependencies and run the installation generator:
 bundle
 bundle exec rails g spree_bank_transfer:install
 ```
+
+Use
+-------------
+Login as Admin and create a new payment method with Spree::PaymentMethod::BankTransfer as provider class.
+
+Create bank details under configuration/banks.
+
+Checkout and select bank transfer payment method. Here, user can see the list of bank details.
 
 Testing
 -------
