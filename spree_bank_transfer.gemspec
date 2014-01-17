@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email     = 'info@vinsol.com'
   s.homepage  = 'http://vinsol.com'
   s.license   = "MIT"
-  #s.files       = `git ls-files`.split("\n")
+  s.files       = `git ls-files`.split("\n")
   #s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.require_path = 'lib'
   s.requirements << 'none'
