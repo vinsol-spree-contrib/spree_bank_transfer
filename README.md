@@ -46,4 +46,4 @@ Simply add this require statement to your spec_helper:
 require 'spree_bank_transfer/factories'
 ```
 
-Copyright (c) 2013 Vinsol, released under the New MIT License
+Copyright (c) 2014 Vinsol, released under the New MIT License
