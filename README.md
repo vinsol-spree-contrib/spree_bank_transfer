@@ -10,7 +10,7 @@ Installation
 Add spree_bank_transfer to your Gemfile:
 
 ```ruby
-gem 'spree_bank_transfer'
+gem 'spree-bank-transfer', require: 'spree_bank_transfer'
 ```
 
 Bundle your dependencies and run the installation generator:
@@ -46,4 +46,4 @@ Simply add this require statement to your spec_helper:
 require 'spree_bank_transfer/factories'
 ```
 
-Copyright (c) 2013 [name of extension creator], released under the New BSD License
+Copyright (c) 2013 Vinsol, released under the New MIT License
