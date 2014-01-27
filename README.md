@@ -1,4 +1,4 @@
-SpreeBankTransfer
+SpreeBankTransfer [![Code Climate](https://codeclimate.com/github/vinsol/spree_bank_transfer.png)](https://codeclimate.com/github/vinsol/spree_bank_transfer)
 =================
 
 This extension allows admin to provide bank transfer payment method to its users.
