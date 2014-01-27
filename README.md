@@ -1,4 +1,4 @@
-SpreeBankTransfer
+SpreeBankTransfer [![Code Climate](https://codeclimate.com/github/vinsol/spree_bank_transfer.png)](https://codeclimate.com/github/vinsol/spree_bank_transfer)
 =================
 
 This extension allows admin to provide bank transfer payment method to its users.
@@ -10,7 +10,7 @@ Installation
 Add spree_bank_transfer to your Gemfile:
 
 ```ruby
-gem 'spree_bank_transfer'
+gem 'spree-bank-transfer', require: 'spree_bank_transfer'
 ```
 
 Bundle your dependencies and run the installation generator:
