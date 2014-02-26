@@ -15,7 +15,7 @@ gem 'spree-bank-transfer', require: 'spree_bank_transfer'
 If you're still using Spree 2.0.x, you should do this instead:
 
 ```ruby
-gem 'spree_bank_transfer', '2.0.5'
+gem 'spree-bank-transfer', 2.0.5', require: 'spree_bank_transfer'
 ```
 
 Bundle your dependencies and run the installation generator:
