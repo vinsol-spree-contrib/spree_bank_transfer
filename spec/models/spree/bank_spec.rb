@@ -1,9 +1,6 @@
 require 'spec_helper'
 
 describe Spree::Bank do
-  it { should allow_mass_assignment_of :name }
-  it { should allow_mass_assignment_of :account_no }
-  it { should allow_mass_assignment_of :active }
   it { should validate_presence_of :name }
   it { should validate_presence_of :account_no }
   it { should validate_uniqueness_of(:account_no).scoped_to(:name) }
