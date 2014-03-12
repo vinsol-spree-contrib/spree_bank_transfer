@@ -12,7 +12,19 @@ Add spree_bank_transfer to your Gemfile:
 ```ruby
 gem 'spree-bank-transfer', require: 'spree_bank_transfer'
 ```
-If you're still using Spree 2.0.x, you should do this instead:
+
+For older versions of Spree.
+
+```ruby
+# Spree 2.1.0
+gem 'spree_favorite_products', '2.1.0'
+```
+
+```ruby
+# Spree 2.0.x
+gem 'spree_favorite_products', '2.0.5'
+```
+
 
 ```ruby
 gem 'spree-bank-transfer', 2.0.5', require: 'spree_bank_transfer'
