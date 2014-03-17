@@ -14,6 +14,28 @@
         <%= f.text_field :account_no, :class => 'fullwidth' %>
       <% end %>
       
+      <%= f.field_container :bank_code do %>
+        <%= f.label :bank_code, Spree.t(:bank_code) %><span class="required">*</span><br />
+        <%= f.text_field :bank_code, :class => 'fullwidth' %>
+      <% end %>
+      
+      <%= f.field_container :iban do %>
+        <%= f.label :iban, Spree.t(:iban) %><span class="required">*</span><br />
+        <%= f.text_field :iban, :class => 'fullwidth' %>
+      <% end %>
+      
+      <%= f.field_container :bic do %>
+        <%= f.label :bic, Spree.t(:bic) %><span class="required">*</span><br />
+        <%= f.text_field :bic, :class => 'fullwidth' %>
+      <% end %>
+      
+      <%= f.field_container :infos  do %>
+        <%= f.label :infos, Spree.t(:infos) %><span class="required">*</span><br />
+        <%= f.text_field :infos, :class => 'fullwidth' %>
+      <% end %>
+      
+      
+      
       <%= f.field_container :active do %>
         <%= f.check_box :active %>
         <%= f.label :active, Spree.t(:active) %>
