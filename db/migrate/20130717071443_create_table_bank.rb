@@ -6,7 +6,7 @@ class CreateTableBank < ActiveRecord::Migration
       t.string :bank_code
       t.string :iban
       t.string :bic
-      t.text :infos
+      t.text :info
       t.boolean :active, :default => true      
     end
     add_index :spree_banks, [:name, :account_no], :unique => true
