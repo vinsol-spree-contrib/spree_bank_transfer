@@ -10,24 +10,23 @@ Installation
 Add spree_bank_transfer to your Gemfile:
 
 ```ruby
-gem 'spree-bank-transfer', require: 'spree_bank_transfer'
+gem 'spree-bank-transfer'
 ```
 
 For older versions of Spree.
 
 ```ruby
 # Spree 2.1.0
-gem 'spree_favorite_products', '2.1.0'
+gem 'spree-bank-transfer', '2.1.0'
 ```
 
 ```ruby
 # Spree 2.0.x
-gem 'spree_favorite_products', '2.0.5'
+gem 'spree-bank-transfer', '2.0.5'
 ```
 
-
 ```ruby
-gem 'spree-bank-transfer', 2.0.5', require: 'spree_bank_transfer'
+gem 'spree-bank-transfer', '2.0.5', require: 'spree_bank_transfer'
 ```
 
 Bundle your dependencies and run the installation generator:
@@ -38,7 +37,7 @@ bundle exec rails g spree_bank_transfer:install
 ```
 
 Use
--------------
+---
 Login as Admin and create a new payment method with Spree::PaymentMethod::BankTransfer as provider class.
 
 Create bank details under configuration/banks.
@@ -62,6 +61,16 @@ Simply add this require statement to your spec_helper:
 ```ruby
 require 'spree_bank_transfer/factories'
 ```
+
+Contributing
+------------
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Varify build is green (`bundle exec rake test_app` && bundle exec rspec spec )
+5. Push to the branch (`git push origin my-new-feature`)
+6. Create new Pull Request
 
 Credits
 -------
