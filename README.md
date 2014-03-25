@@ -1,20 +1,18 @@
-SpreeBankTransfer [![Code Climate](https://codeclimate.com/github/vinsol/spree_bank_transfer.png)](https://codeclimate.com/github/vinsol/spree_bank_transfer) [![Build Status](https://travis-ci.org/vinsol/spree_bank_transfer.png?branch=master)](https://travis-ci.org/vinsol/spree_bank_transfer)
+Spree Bank Transfer [![Code Climate](https://codeclimate.com/github/vinsol/spree_bank_transfer.png)](https://codeclimate.com/github/vinsol/spree_bank_transfer) [![Build Status](https://travis-ci.org/vinsol/spree_bank_transfer.png?branch=master)](https://travis-ci.org/vinsol/spree_bank_transfer)
 =================
 
-This extension allows admin to provide bank transfer payment method to its users.
+This Spree extension allows admin to provide bank transfer payment method to its users for.
 
 
 Installation
 ------------
 
 Add spree_bank_transfer to your Gemfile:
-
 ```ruby
 gem 'spree-bank-transfer'
 ```
 
 For older versions of Spree.
-
 ```ruby
 # Spree 2.1.0
 gem 'spree-bank-transfer', '2.1.0'
@@ -22,10 +20,6 @@ gem 'spree-bank-transfer', '2.1.0'
 
 ```ruby
 # Spree 2.0.x
-gem 'spree-bank-transfer', '2.0.5'
-```
-
-```ruby
 gem 'spree-bank-transfer', '2.0.5', require: 'spree_bank_transfer'
 ```
 
@@ -65,12 +59,14 @@ require 'spree_bank_transfer/factories'
 Contributing
 ------------
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Varify build is green (`bundle exec rake test_app` && bundle exec rspec spec )
-5. Push to the branch (`git push origin my-new-feature`)
-6. Create new Pull Request
+1. Fork the repo.
+2. Clone your repo.
+3. Run `bundle install`.
+4. Run `bundle exec rake test_app` to create the test application in `spec/test_app`.
+5. Make your changes.
+6. Ensure specs pass by running `bundle exec rspec spec`.
+7. Submit your pull request.
+
 
 Credits
 -------
