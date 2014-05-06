@@ -26,5 +26,10 @@ module Spree
     def source_required?
       false
     end
+      
+    def credit(money, credit_card, response_code, options = {})
+      ActiveMerchant::Billing::Response.new(true, "", {}, {})
+    end
   end
+  
 end
