@@ -42,7 +42,7 @@ How it works:
 * Add bank account information from “Banks” link on “Configuration” page.
   
   - Provide Name of the bank
-  - Provide Account number.
+  - Provide Account number
   - Select “Status” check box 
 
     ![Listing Banks](http://vinsol.com/gems_screenshots/spree-bank-transfer/list%20banks.png)
