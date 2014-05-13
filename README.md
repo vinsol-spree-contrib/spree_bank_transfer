@@ -1,7 +1,7 @@
 Spree Bank Transfer [![Code Climate](https://codeclimate.com/github/vinsol/spree_bank_transfer.png)](https://codeclimate.com/github/vinsol/spree_bank_transfer) [![Build Status](https://travis-ci.org/vinsol/spree_bank_transfer.png?branch=master)](https://travis-ci.org/vinsol/spree_bank_transfer)
 =================
 
-This Spree extension allows admin to provide bank transfer payment method to its users for.
+Spree Bank Transfer extension creates a new payment method in Spree. This payment method allows customers to pay by transferring money directly into merchant’s  bank account.  It also allows admin to provide their Bank account's (Merchant Bank Account) details which will be displayed to customers while checkout, and they can use this information to make payment for their orders. This extension also facilitate admin to Activate/Deactivate Bank accounts.
 
 
 Installation
@@ -30,13 +30,55 @@ bundle
 bundle exec rails g spree_bank_transfer:install
 ```
 
-Use
+How it works: 
 ---
-Login as Admin and create a new payment method with Spree::PaymentMethod::BankTransfer as provider class.
 
-Create bank details under configuration/banks.
+1. To add Bank Transfer feature, Admin needs to add “Bank Transfer” payment method:
 
-Checkout and select bank transfer payment method. Here, user can see the list of bank details.
+   Configuration -> Payment Methods -> New payment Method
+   
+   You need to select “Spree::PaymentMethod::BankTransfer” as the Provider
+
+2. Add bank account information from “Banks” link on “Configuration” page.
+  
+  - Provide Name of the bank
+  - Provide Account number.
+  - Select “Status” check box 
+
+    ![Listing Banks](http://vinsol.com/gems_screenshots/spree-bank-transfer/list%20banks.png)
+    
+    **Bank Account will be visible on Checkout Page only if it is Active.**
+
+3. After adding the payment method and bank details (as stated above), this payment method will be visible on Checkout page while making payment against an order.
+
+4.  Active merchant **accounts number** will also be visible on Checkout page under this method.
+
+    ![Checkout](http://vinsol.com/gems_screenshots/spree-bank-transfer/checkout%20page.png)
+
+5. Customer will be able to order by completing the order with this method and can transfer money equal to total order value directly into any one of the merchant’s bank account.
+
+6. After receiving amount into his account, admin can update order by following the steps: 
+
+    - On ‘Orders’ tab, click on order number to go to the order’s details page..
+    - Select “Payments” link.
+    - Mark the payment “Capture”
+    ![Order Page](http://vinsol.com/gems_screenshots/spree-bank-transfer/order%20page.png)
+
+7. The order will not be marked Completed  until admin captures the payment as mentioned in step above.
+
+
+
+
+Contributing
+------------
+
+1. Fork the repo.
+2. Clone your repo.
+3. Run `bundle install`.
+4. Run `bundle exec rake test_app` to create the test application in `spec/test_app`.
+5. Make your changes.
+6. Ensure specs pass by running `bundle exec rspec spec`.
+7. Submit your pull request.
 
 Testing
 -------
@@ -55,17 +97,6 @@ Simply add this require statement to your spec_helper:
 ```ruby
 require 'spree_bank_transfer/factories'
 ```
-
-Contributing
-------------
-
-1. Fork the repo.
-2. Clone your repo.
-3. Run `bundle install`.
-4. Run `bundle exec rake test_app` to create the test application in `spec/test_app`.
-5. Make your changes.
-6. Ensure specs pass by running `bundle exec rspec spec`.
-7. Submit your pull request.
 
 
 Credits
