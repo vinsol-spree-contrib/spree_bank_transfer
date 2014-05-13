@@ -48,7 +48,6 @@ How it works:
     ![Listing Banks](http://vinsol.com/gems_screenshots/spree-bank-transfer/list%20banks.png)
     
     **Bank Account will be visible on Checkout Page only if it is Active.**
-
 3. After adding the payment method and bank details (as stated above), this payment method will be visible on Checkout page while making payment against an order.
 
 4.  Active merchant **accounts number** will also be visible on Checkout page under this method.
