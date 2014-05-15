@@ -2,12 +2,12 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree-bank-transfer'
-  s.version     = '2.2.2'
+  s.version     = '2.2.3'
   s.summary     = 'Spree extension to create bank transfer payment method.'
   s.description = 'This Spree extension allows admin to provide bank transfer payment method to its users.'
   s.required_ruby_version = '>= 1.9.3'
 
-  s.authors   = ['Mohit Bansal', 'Vishal Zambre']
+  s.author    = 'Mohit Bansal'
   s.email     = 'info@vinsol.com'
   s.homepage  = 'http://vinsol.com'
   s.license   = "MIT"
