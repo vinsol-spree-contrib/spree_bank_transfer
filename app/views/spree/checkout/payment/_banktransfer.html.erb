@@ -1,3 +1,5 @@
+<%= link_to "How it works?", bank_transfer_instructions_path, :id => 'banktransfer_instructions', :target => "_blank" %>
+<br><br>
 <% if (banks = Spree::Bank.active).any? %>
   <table>
     <tr>
