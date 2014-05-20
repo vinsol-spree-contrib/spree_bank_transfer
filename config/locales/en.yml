@@ -3,3 +3,10 @@
 
 en:
   hello: "Hello world"
+  spree:
+    payment_not_found: "Payment not found"
+    payment_successfully_updated: "Payment successfully updated"
+    payment_reference_details: "Payment Reference Details"
+    bank_name: "Bank Name"
+    account_no: 'Account No'
+    transaction_reference_no: 'Transaction Reference No'
