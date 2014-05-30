@@ -4,11 +4,11 @@ module Spree
     before_filter :find_payment
 
     def update
-      @payment.validate_bank_details = true
-      if @payment.update_attributes(payment_params)
+      payment_details = PaymentDetails.new(@payment, payment_params)
+      if payment_details.save
         flash[:notice] = Spree.t(:payment_successfully_updated)
       else
-        flash[:error] = @payment.errors.full_messages.to_sentence
+        flash[:error] = payment_details.errors.to_sentence
       end
       redirect_to :back
     end
@@ -23,7 +23,7 @@ module Spree
     
     private
       def payment_params
-        params.require(:payment).permit(:bank_name, :account_no, :transaction_reference_no)
+        params.require(:payment).permit(:deposited_on, :bank_name, :account_no, :transaction_reference_no)
       end
   end
 end

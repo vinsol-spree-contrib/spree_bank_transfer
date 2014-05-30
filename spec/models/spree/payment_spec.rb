@@ -9,6 +9,7 @@ describe Spree::Payment do
     it { should validate_presence_of(:bank_name) }
     it { should validate_presence_of(:account_no) }
     it { should validate_presence_of(:transaction_reference_no) }
+    it { should validate_presence_of(:deposited_on) }
   end
 
   context 'when validate_bank_details not true' do
@@ -53,6 +54,28 @@ describe Spree::Payment do
 
     it "returns payments with payment method as bank_transfer" do
       Spree::Payment.from_bank_transfer.should =~ [@bank_transfer_payment1, @bank_transfer_payment2]
+    end
+  end
+
+  describe "#details_submitted?" do
+    before do
+      @payment = Spree::Payment.new
+    end
+
+    context 'when transaction_reference_no present' do
+      before do
+        @payment.transaction_reference_no = 'transaction_reference_no'
+      end
+
+      it 'is true' do
+        @payment.details_submitted?.should be_true
+      end
+    end
+
+    context 'when transaction_reference_no not present' do
+      it 'is false' do
+        @payment.details_submitted?.should be_false
+      end
     end
   end
 end

@@ -43,8 +43,8 @@ describe Spree::PaymentsController do
 
   describe "PATCH update" do
     before do
-      @payment.stub(:validate_bank_details=)
-      @payment.stub(:update_attributes)
+      @payment_details = double('payment_details', :save => true)
+      PaymentDetails.stub(:new).and_return(@payment_details)
     end
 
     def send_request
@@ -53,34 +53,31 @@ describe Spree::PaymentsController do
 
     it_behaves_like "request which finds payment"
 
-    it "sets validate_bank_details to true" do
-      @payment.should_receive(:validate_bank_details=).with(true)
+
+    it "creates new payment details" do
+      PaymentDetails.should_receive(:new).with(@payment, { 'bank_name' => 'bank_name', 'account_no' => "account_no", 'transaction_reference_no' => "transaction_reference_no" })
       send_request
     end
 
-    it "update_attributes" do
-      @payment.should_receive(:update_attributes).with("bank_name" => 'bank_name', "account_no" => "account_no", "transaction_reference_no" => "transaction_reference_no")
+    it "saves payment_details" do
+      @payment_details.should_receive(:save)
       send_request
     end
 
-    context 'when payment updated' do
-      before do
-        @payment.stub(:update_attributes).and_return(true)
-      end
-
-      it "sets flash message" do
+    context 'when payment details saved successfully' do
+      it 'sets flash message' do
         send_request
         flash[:notice].should eq("Payment successfully updated")
       end
     end
 
-    context 'when payment not updated' do
+    context 'when payment details not saved' do
       before do
-        @payment.stub(:update_attributes).and_return(false)
-        @payment.stub_chain(:errors, :full_messages).and_return(["some error occurred"])
+        @payment_details.stub(:save).and_return(false)
+        @payment_details.stub(:errors).and_return(["some error occurred"])
       end
 
-      it "sets flash error" do
+      it 'sets flash error' do
         send_request
         flash[:error].should eq("some error occurred")
       end
@@ -93,9 +90,9 @@ describe Spree::PaymentsController do
   end
 
   describe "#payment_params" do
-    it "permits only bank_name, account_no, transaction_reference_no" do
-      controller.params = { :payment => { :bank_name => 'Bank Name', :account_no => 'Account number', :transaction_reference_no => "transaction reference number", :order_id => 'order_id' } }
-      controller.send(:payment_params).should eq({ "bank_name" => "Bank Name", "account_no" => "Account number", "transaction_reference_no" => "transaction reference number" })
+    it "permits only bank_name, account_no, transaction_reference_no, deposited_on" do
+      controller.params = { :payment => { :bank_name => 'Bank Name', :account_no => 'Account number', :transaction_reference_no => "transaction reference number", :order_id => 'order_id', :deposited_on => 'deposited_on' } }
+      controller.send(:payment_params).should eq({ "bank_name" => "Bank Name", "account_no" => "Account number", "transaction_reference_no" => "transaction reference number", 'deposited_on' => 'deposited_on' })
     end
   end
 end

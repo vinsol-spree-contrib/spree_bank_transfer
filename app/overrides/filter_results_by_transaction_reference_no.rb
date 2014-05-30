@@ -8,7 +8,7 @@ Deface::Override.new(
       <div class="field checkbox">
         <label>
           <%= f.check_box :payments_transaction_reference_no_not_null %>
-          <%= Spree.t(:only_show_orders_with_payment_reference_number) %>
+          <%= Spree.t(:only_show_orders_with_bank_transfer_payment_reference_number) %>
         </label>
       </div>
 
