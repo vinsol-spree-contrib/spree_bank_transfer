@@ -11,16 +11,16 @@ Deface::Override.new(
       <%= form_for bank_transfer_payment, :html => { :class => "bt_payment_form #{bank_transfer_payment.details_submitted? ? '' : 'hidden'}" } do |f| %>
         <table>
           <tr>
-            <td><%= Spree.t(:deposited_on) %></td><td><%= f.date_field :deposited_on, :disabled => bank_transfer_payment.details_submitted? %></td>
+            <td><%= Spree.t(:deposited_on) %></td><td><%= f.date_field :deposited_on, :disabled => bank_transfer_payment.details_submitted?, :class => 'required_field', 'field-name' => 'Deposited on' %></td>
           </tr>
           <tr>
-            <td><%= Spree.t(:bank_name) %></td><td><%= f.text_field :bank_name, :disabled => bank_transfer_payment.details_submitted? %></td>
+            <td><%= Spree.t(:bank_name) %></td><td><%= f.text_field :bank_name, :disabled => bank_transfer_payment.details_submitted?, :class => 'required_field', 'field-name' => 'Bank name' %></td>
           </tr>
           <tr>
-            <td><%= Spree.t(:account_no) %></td><td><%= f.text_field :account_no, :disabled => bank_transfer_payment.details_submitted? %></td>
+            <td><%= Spree.t(:account_no) %></td><td><%= f.text_field :account_no, :disabled => bank_transfer_payment.details_submitted?, :class => 'required_field', 'field-name' => 'Account No.' %></td>
           </tr>
           <tr>
-            <td><%= Spree.t(:transaction_reference_no) %></td><td><%= f.text_field :transaction_reference_no, :disabled => bank_transfer_payment.details_submitted? %></td>
+            <td><%= Spree.t(:transaction_reference_no) %></td><td><%= f.text_field :transaction_reference_no, :disabled => bank_transfer_payment.details_submitted?, :class => 'required_field', 'field-name' => 'Transaction Reference No.' %></td>
           </tr>
         </table>
         <br>
