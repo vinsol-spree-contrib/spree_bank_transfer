@@ -1,13 +1,6 @@
 <h4>HOW BANK TRANSFER WORKS</h4>
 <b>Steps:</b>
 <p>1. Deposit order value in one of the below mentioned Bank Accounts. After this payment a reference number will be provided by the bank.</p>
-2. Enter this payment reference number on Order Details page by following steps:<br><br>
-a) Select "My Account" from top right corner. <br>
-b) Click on the Order number. <br>
-c) Click on "Add Details" link visible in "Payment Information" column. <br>
-d) Provide payment details and Submit.
-<br><br>
-
 <% if (banks = Spree::Bank.active).any? %>
   <table border="1">
     <tr>
@@ -22,6 +15,16 @@ d) Provide payment details and Submit.
     <% end %>
   </table>
 <% end %>
+<br>
+2. Enter this payment reference number on Order Details page by following steps:<br><br>
 
-<br/>
+a) Select "My Account" from top right corner. <br>
+b) Click on the Order number. <br>
+c) Click on "Add Details" link visible in "Payment Information" column. <br>
+d) Provide payment details and Submit.
+<br><br>
 <%= image_tag 'payment_details.png' %>
+
+
+
+
