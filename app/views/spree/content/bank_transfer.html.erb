@@ -1,30 +1,32 @@
 <h4>HOW BANK TRANSFER WORKS</h4>
 <b>Steps:</b>
-<p>1. Deposit order value in one of the below mentioned Bank Accounts. After this payment a reference number will be provided by the bank.</p>
-<% if (banks = Spree::Bank.active).any? %>
-  <table border="1">
-    <tr>
-      <th>Name</th>
-      <th>Account No</th>
-    </tr>
-    <% banks.each do |bank| %>
-      <tr>
-        <td><%= bank.name %></td>
-        <td><%= bank.account_no %></td>
-      </tr>
+<ol>
+  <li>Deposit order total in one of the below mentioned bank accounts. After this payment a payment reference number will be provided by the bank.
+    <% if (banks = Spree::Bank.active).any? %>
+      <div style="padding:20px 0">
+      <table border="1" align='center' width="60%">
+        <tr>
+          <th><center>Name</center></th>
+          <th><center>Account No</center></th>
+        </tr>
+        <% banks.each do |bank| %>
+          <tr>
+            <td><center><%= bank.name %></center></td>
+            <td><center><%= bank.account_no %></center></td>
+          </tr>
+        <% end %>
+      </table>
+      </div>
     <% end %>
-  </table>
-<% end %>
-<br>
-2. Enter this payment reference number on Order Details page by following steps:<br><br>
-
-a) Select "My Account" from top right corner. <br>
-b) Click on the Order number. <br>
-c) Click on "Add Details" link visible in "Payment Information" column. <br>
-d) Provide payment details and Submit.
-<br><br>
-<%= image_tag 'payment_details.png' %>
-
-
-
-
+  </li>
+  <li>Enter this payment reference number on Order Details page by following steps:
+    <ol style="padding:10px 0 0 20px" type='a'>
+      <li>Go to "My Account" page.</li>
+      <li>Select Order for which you want to provide details.</li> 
+      <li>Click on "Add Details" link visible in "Payment Information" column.</li>
+      <li>Provide payment details and Submit.</li>
+      <br><br>
+      <%= image_tag 'payment_details.png' %>
+    </ol>
+  </li>
+</ol>
