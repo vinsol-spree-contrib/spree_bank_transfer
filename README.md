@@ -1,7 +1,8 @@
 Spree Bank Transfer [![Code Climate](https://codeclimate.com/github/vinsol/spree_bank_transfer.png)](https://codeclimate.com/github/vinsol/spree_bank_transfer) [![Build Status](https://travis-ci.org/vinsol/spree_bank_transfer.png?branch=master)](https://travis-ci.org/vinsol/spree_bank_transfer)
 =================
 
-Spree Bank Transfer extension creates a new payment method in Spree. This payment method allows customers to pay by transferring money directly into merchant’s  bank account.  It also allows admin to provide their Bank account's (Merchant Bank Account) details which will be displayed to customers while checkout, and they can use this information to make payment for their orders. This extension also facilitate admin to Activate/Deactivate Bank accounts.
+Spree Bank Transfer is an extension which allows adding a new payment method “Bank Transfer” to existing spree e-commerce store. With the help of this payment method customer can place an order online and pay by transferring money directly into merchant’s  Bank account.  This extension allow merchants to provide their bank account(s) details which in turn is used by customers to order and pay using this method. This extension also facilitate admin to Activate/Deactivate attached Bank accounts. Admin can also filter orders on the basis of the available payment transaction reference numbers with this extension.
+
 
 
 Installation
@@ -51,19 +52,29 @@ How it works:
 * After adding the payment method and bank details (as stated above), this payment method will be visible on Checkout page while making payment against an order.
 
 *  Active merchant **accounts number** will also be visible on Checkout page under this method.
-
     ![Checkout](http://vinsol.com/gems_screenshots/spree-bank-transfer/checkout%20page.png)
 
-* Customer will be able to order by completing the order with this method and can transfer money equal to total order value directly into any one of the merchant’s bank account.
+* Customer will be able to order by completing the order with this method and can transfer 
+   money equal to total order value directly into any one of the merchant’s bank account.
 
-* After receiving amount into his account, admin can update order by following the steps: 
+* After customer deposits money into merchant’s account, a payment transaction reference number is provided by the bank. Customer needs to add this payment reference details with the respective order by going to order detail page.
 
-    - On ‘Orders’ tab, click on order number to go to the order’s details page..
-    - Select “Payments” link.
-    - Mark the payment “Capture”
-    ![Order Page](http://vinsol.com/gems_screenshots/spree-bank-transfer/order%20page.png)
+My Account -> Order no. -> Add details (Payment information column) -> Submit
+ ![Order](http://vinsol.com/gems_screenshots/spree-bank-transfer/order.png)
 
-* The order will not be marked Completed  until admin captures the payment as mentioned in step above.
+* Admin will be able to see the payment reference details, added by customer, on the Order detail page.
+Orders -> Order no. ->  Payments
+![Payments](http://vinsol.com/gems_screenshots/spree-bank-transfer/payments.png)
+
+* The order will not be marked Completed  until admin captures the payment as mentioned 
+    in step above.
+
+Note: Admin needs to manually verify the transaction details from his bank account before  
+            capturing the payment
+
+* Admin can filter orders which has payment transaction reference number by clicking the check box “only show orders with bank transfer payment reference number” on “Orders” page.
+![Orders](http://vinsol.com/gems_screenshots/spree-bank-transfer/orders.png)
+
 
 
 
