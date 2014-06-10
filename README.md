@@ -54,26 +54,23 @@ How it works:
 *  Active merchant **accounts number** will also be visible on Checkout page under this method.
     ![Checkout](http://vinsol.com/gems_screenshots/spree-bank-transfer/checkout%20page.png)
 
-* Customer will be able to order by completing the order with this method and can transfer 
-   money equal to total order value directly into any one of the merchant’s bank account.
+* Customer will be able to order by completing the order with this method and can transfer money equal to total order   
+  value directly into any one of the merchant’s bank account.
 
-* After customer deposits money into merchant’s account, a payment transaction reference number is provided by the bank. Customer needs to add this payment reference details with the respective order by going to order detail page.
-
-My Account -> Order no. -> Add details (Payment information column) -> Submit
- ![Order](http://vinsol.com/gems_screenshots/spree-bank-transfer/order.png)
+* After customer deposits money into merchant’s account, a payment transaction reference number is provided by the bank.   Customer needs to add this payment reference details with the respective order by going to order detail page.
+     My Account -> Order no. -> Add details (Payment information column) -> Submit
+     ![Order](http://vinsol.com/gems_screenshots/spree-bank-transfer/order.png)
 
 * Admin will be able to see the payment reference details, added by customer, on the Order detail page.
-Orders -> Order no. ->  Payments
-![Payments](http://vinsol.com/gems_screenshots/spree-bank-transfer/payments.png)
+       Orders -> Order no. ->  Payments
+       ![Payments](http://vinsol.com/gems_screenshots/spree-bank-transfer/payments.png)
 
-* The order will not be marked Completed  until admin captures the payment as mentioned 
-    in step above.
+* The order will not be marked Completed  until admin captures the payment as mentioned in step above.
 
-Note: Admin needs to manually verify the transaction details from his bank account before  
-            capturing the payment
+      Note: Admin needs to manually verify the transaction details from his bank account before capturing the payment
 
-* Admin can filter orders which has payment transaction reference number by clicking the check box “only show orders with bank transfer payment reference number” on “Orders” page.
-![Orders](http://vinsol.com/gems_screenshots/spree-bank-transfer/orders.png)
+* Admin can filter orders which has payment transaction reference number by clicking the check box “only show orders with   bank transfer payment reference number” on “Orders” page.
+      ![Orders](http://vinsol.com/gems_screenshots/spree-bank-transfer/orders.png)
 
 
 
