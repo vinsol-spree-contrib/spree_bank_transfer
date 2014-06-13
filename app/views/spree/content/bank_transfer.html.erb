@@ -4,15 +4,17 @@
   <li>Deposit order total in one of the below mentioned bank accounts. After this payment a payment reference number will be provided by the bank.
     <% if (banks = Spree::Bank.active).any? %>
       <div style="padding:20px 0">
-      <table border="1" align='center' width="60%">
+      <table border="1" align='center' width="80%">
         <tr>
           <th><center>Name</center></th>
           <th><center>Account No</center></th>
+          <th><center>Additional Details</center></th>
         </tr>
         <% banks.each do |bank| %>
           <tr>
             <td><center><%= bank.name %></center></td>
             <td><center><%= bank.account_no %></center></td>
+            <td><center><%= bank.additional_details %></center></td>
           </tr>
         <% end %>
       </table>

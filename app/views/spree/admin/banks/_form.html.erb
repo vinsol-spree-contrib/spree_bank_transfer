@@ -13,7 +13,12 @@
         <%= f.label :account_no, Spree.t(:account_no) %><span class="required">*</span><br />
         <%= f.text_field :account_no, :class => 'fullwidth' %>
       <% end %>
-      
+
+      <%= f.field_container :additional_details do %>
+        <%= f.label :additional_details, Spree.t(:additional_details) %><br />
+        <%= f.text_area :additional_details, :rows => 10, :class => 'fullwidth' %>
+      <% end %>
+
       <%= f.field_container :active do %>
         <%= f.check_box :active %>
         <%= f.label :active, Spree.t(:active) %>

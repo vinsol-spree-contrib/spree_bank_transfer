@@ -17,6 +17,7 @@
     <tr>
       <th>Name</th>
       <th>Account No</th>
+      <th>Additional Details</th>
       <th>Status</th>
     </tr>
   </thead>
@@ -26,6 +27,7 @@
       <tr class="<%= cycle('odd', 'even') %>">
         <td class="align-center"><%= bank.name %></td>
         <td class="align-center"><%= bank.account_no %></td>
+        <td class="align-center"><%= bank.additional_details %></td>
         <td class="align-center" id='active-status-<%= bank.id %>'><%= bank_status(bank) %></td>
         <td class="actions"><%= link_to action_to_toggle_bank_status(bank), toggle_activation_admin_bank_path(bank), :remote => true, :method => :put %></td>
         <td class="actions"><%= link_to_edit bank, :no_text => true, :class => 'edit' %></td>
