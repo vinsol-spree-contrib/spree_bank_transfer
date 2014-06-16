@@ -11,7 +11,7 @@ Deface::Override.new(
       <%= form_for bank_transfer_payment, :html => { :class => "bt_payment_form #{bank_transfer_payment.details_submitted? ? '' : 'hidden'}" } do |f| %>
         <table>
           <tr>
-            <td><%= Spree.t(:deposited_on) %></td><td><%= f.date_field :deposited_on, :disabled => bank_transfer_payment.details_submitted?, :class => 'required_field', 'field-name' => 'Deposited on' %></td>
+            <td><%= Spree.t(:deposited_on) %></td><td><%= f.text_field :deposited_on, :disabled => bank_transfer_payment.details_submitted?, :class => 'required_field', 'field-name' => 'Deposited on' %></td>
           </tr>
           <tr>
             <td><%= Spree.t(:bank_name) %></td><td><%= f.text_field :bank_name, :disabled => bank_transfer_payment.details_submitted?, :class => 'required_field', 'field-name' => 'Bank name' %></td>
