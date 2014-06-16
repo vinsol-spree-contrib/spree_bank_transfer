@@ -56,7 +56,7 @@ How it works:
 
     ![Checkout](http://vinsol.com/gems_screenshots/spree-bank-transfer/checkout.png)
 
-“How Bank  Transfer Works” link will open a pop-up window. It will list all steps to complete order with this method.
+**“How Bank  Transfer Works” link will open a pop-up window. It will list all steps to complete order with this method.**
 
 * Customer will be able to order by completing the order with this method and can transfer money equal to total order   
   value directly into any one of the merchant’s bank account.
