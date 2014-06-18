@@ -45,7 +45,7 @@ How it works:
   - Provide Name of the bank
   - Provide Account number
   - Select “Status” check box 
-  - Provide “Additional Details”, like “Branch Name”, “IFSC code” etc.
+  - Provide “Additional Details”, like “Branch Name”, “Bank code” etc.
 
     ![Listing Banks](http://vinsol.com/gems_screenshots/spree-bank-transfer/listing%20banks.png)
     
