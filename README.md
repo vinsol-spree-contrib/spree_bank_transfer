@@ -45,15 +45,18 @@ How it works:
   - Provide Name of the bank
   - Provide Account number
   - Select “Status” check box 
+  - Provide “Additional Details”, like “Branch Name”, “Bank code” etc.
 
-    ![Listing Banks](http://vinsol.com/gems_screenshots/spree-bank-transfer/list%20banks.png)
+    ![Listing Banks](http://vinsol.com/gems_screenshots/spree-bank-transfer/listing%20banks.png)
     
     **Bank Account will be visible on Checkout Page only if it is Active.**
 * After adding the payment method and bank details (as stated above), this payment method will be visible on Checkout page while making payment against an order.
 
 *  Active merchant **accounts number** will also be visible on Checkout page under this method.
 
-    ![Checkout](http://vinsol.com/gems_screenshots/spree-bank-transfer/checkout%20page.png)
+    ![Checkout](http://vinsol.com/gems_screenshots/spree-bank-transfer/checkout.png)
+
+**“How Bank  Transfer Works” link will open a pop-up window. It will list all steps to complete order with this method.**
 
 * Customer will be able to order by completing the order with this method and can transfer money equal to total order   
   value directly into any one of the merchant’s bank account.
