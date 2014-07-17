@@ -9,13 +9,13 @@ Installation
 
 Add spree_bank_transfer to your Gemfile:
 ```ruby
-gem 'spree-bank-transfer'
+gem 'spree-bank-transfer', require: 'spree_bank_transfer'
 ```
 
 For older versions of Spree.
 ```ruby
 # Spree 2.1.0
-gem 'spree-bank-transfer', '2.1.0'
+gem 'spree-bank-transfer', '2.1.0', require: 'spree_bank_transfer'
 ```
 
 ```ruby
