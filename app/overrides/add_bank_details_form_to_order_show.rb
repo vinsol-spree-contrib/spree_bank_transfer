@@ -25,9 +25,9 @@ Deface::Override.new(
         </table>
         <br>
         <% unless bank_transfer_payment.details_submitted? %>
-          <%= f.submit "Submit", :confirm => "Are you sure you want to Submit these details? You will not be able to Edit these details once Submitted. Press 'OK' to confirm."  %>
+          <%= f.submit "Submit", :confirm => Spree.t(:confirm_details_submit)  %>
         <% end %>
-      <% end %>  
-    <% end %>  
+      <% end %>
+    <% end %>
   }
 )

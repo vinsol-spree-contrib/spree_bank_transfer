@@ -1,0 +1,24 @@
+it:
+  spree:
+    account_no: Numero Conto
+    add_details: Aggiungi dettagli
+    additional_details: Dettagli aggiuntivi
+    back_to_banks_list: Torna alla lista Banche
+    banks: Banche
+    bank_name: Nome Banca
+    confirm_details_submit: Sei sicuro di voler inserire i dettagli? Non sarà possibile modificarli successivamente. Premi 'OK' per confermare.
+    deactivate: Disattiva
+    deposited_on: Vresato il
+    how_bank_transfer_works: Come funziona il Bonifico Bancario?
+    listing_banks: Lista Banche
+    new_bank: Nuova Banca
+    only_show_orders_with_bank_transfer_payment_reference_number: Visualiza solo ordini con numero transazione bonifico
+    payment_not_found: Pagamento non trovato
+    payment_successfully_updated: Pagamento aggiornato con successo
+    payment_reference_details: Dettagli pagamento
+    transaction_reference_no: Numero transazione
+  activerecord:
+    models:
+      spree/bank:
+        one: Banca
+        other: Banche

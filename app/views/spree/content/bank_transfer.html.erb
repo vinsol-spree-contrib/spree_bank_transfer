@@ -6,9 +6,9 @@
       <div style="padding:20px 0">
       <table border="1" align='center' width="80%">
         <tr>
-          <th><center>Name</center></th>
-          <th><center>Account No</center></th>
-          <th><center>Additional Details</center></th>
+          <th><%= Spree.t(:bank_name) %></th>
+          <th><%= Spree.t(:account_no) %></th>
+          <th><%= Spree.t(:additional_details) %></th>
         </tr>
         <% banks.each do |bank| %>
           <tr>
@@ -24,7 +24,7 @@
   <li>Enter this payment reference number on Order Details page by following steps:
     <ol style="padding:10px 0 0 20px" type='a'>
       <li>Go to "My Account" page.</li>
-      <li>Select Order for which you want to provide details.</li> 
+      <li>Select Order for which you want to provide details.</li>
       <li>Click on "Add Details" link visible in "Payment Information" column.</li>
       <li>Provide payment details and Submit.</li>
       <br><br>

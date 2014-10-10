@@ -1,9 +1,9 @@
 <% if (banks = Spree::Bank.active).any? %>
   <table>
     <tr>
-      <th>Name</th>
-      <th>Account No</th>
-      <th>Additional Details</th>
+      <th><%= Spree.t(:bank_name) %></th>
+      <th><%= Spree.t(:account_no) %></th>
+      <th><%= Spree.t(:additional_details) %></th>
     </tr>
     <% banks.each do |bank| %>
       <tr>
