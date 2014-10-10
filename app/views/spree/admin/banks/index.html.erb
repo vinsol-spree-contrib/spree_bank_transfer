@@ -15,13 +15,13 @@
 <table class='index'>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Account No</th>
-      <th>Additional Details</th>
-      <th>Status</th>
+      <th><%= Spree.t(:bank_name) %></th>
+      <th><%= Spree.t(:account_no) %></th>
+      <th><%= Spree.t(:additional_details) %></th>
+      <th><%= Spree.t(:status) %></th>
     </tr>
   </thead>
-  
+
   <tbody>
     <% @banks.each do |bank| %>
       <tr class="<%= cycle('odd', 'even') %>">

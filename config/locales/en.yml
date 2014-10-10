@@ -1,12 +1,24 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
-  hello: "Hello world"
   spree:
-    payment_not_found: "Payment not found"
-    payment_successfully_updated: "Payment successfully updated"
-    payment_reference_details: "Payment Reference Details"
-    bank_name: "Bank Name"
-    account_no: 'Account No'
-    transaction_reference_no: 'Transaction Reference No'
+    account_no: Account No
+    add_details: Add details
+    additional_details: Additional Details
+    back_to_banks_list: Back to Banks list
+    banks: Banks
+    bank_name: Bank Name
+    confirm_details_submit: Are you sure you want to Submit these details? You will not be able to Edit these details once Submitted. Press 'OK' to confirm.
+    deactivate: Deactivate
+    deposited_on: Deposited on
+    how_bank_transfer_works: How Bank Transfer works?
+    listing_banks: Listing Banks
+    new_bank: New Bank
+    only_show_orders_with_bank_transfer_payment_reference_number: Only show orders with bank transfer payment reference number
+    payment_not_found: Payment not found
+    payment_successfully_updated: Payment successfully updated
+    payment_reference_details: Bank Transfer Payment Reference Details
+    transaction_reference_no: Transaction Reference No
+  activerecord:
+    models:
+      spree/bank:
+        one: Bank
+        other: Banks

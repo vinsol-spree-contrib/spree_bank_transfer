@@ -5,7 +5,7 @@ Deface::Override.new(
   :text => %q{
     <% if bank_transfer_payment = @order.payments.from_bank_transfer.first %>
       <fieldset class="no-border-bottom" >
-        <legend align="center"><%= Spree.t(:bank_transfer_payment_reference_details) %></legend>
+        <legend align="center"><%= Spree.t(:payment_reference_details) %></legend>
         <table class="index">
           <thead>
             <tr data-hook="payments_header">
