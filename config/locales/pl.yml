@@ -1,0 +1,24 @@
+pl:
+  spree:
+    account_no: Numer konta
+    add_details: Szczegóły
+    additional_details: Dodatkowe informacje
+    back_to_banks_list: Wróć do listy banków
+    banks: Banki
+    bank_name: Nazwa banku
+    confirm_details_submit: Czy jestes pewien że chcesz dodać te informacje ? Jeśli potwierdzisz te informacje, nie będziesz upoważniony by je zmienić w czasie późniejszym. Raz dodane nie będą mogły być zmienione. Wciśnij "OK" aby potwierdzić.
+    deactivate: Deaktywacja
+    deposited_on: Depozyt
+    how_bank_transfer_works: Jak działa przelew bankowy ?
+    listing_banks: Lista banków
+    new_bank: Nowy bank
+    only_show_orders_with_bank_transfer_payment_reference_number: Pokaż tylko zlecenia z numerem referencyjnym przelewu
+    payment_not_found: Płatnośc nie została odnotowana
+    payment_successfully_updated: Płatność potwierdzona
+    payment_reference_details: Szczegoły przelewu bankowego
+    transaction_reference_no: Numer referencyjny transakcji
+  activerecord:
+    models:
+      spree/bank:
+        one: Bank
+        other: Banki
