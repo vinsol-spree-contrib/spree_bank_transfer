@@ -1,8 +1,13 @@
 # encoding: UTF-8
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
+<<<<<<< HEAD
   s.name        = 'spree-bank-transfer'
   s.version     = '2.3.0'
+=======
+  s.name        = 'spree_bank_transfer'
+  s.version     = '3.0.0'
+>>>>>>> b779fb6... replace '-' with '_' in 'spree-bank-transfer'
   s.summary     = 'Spree extension to create bank transfer payment method.'
   s.description = 'This Spree extension allows admin to provide bank transfer payment method to its users.'
   s.required_ruby_version = '>= 1.9.3'
