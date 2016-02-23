@@ -1,0 +1,41 @@
+//= require jquery-ui/datepicker
+$(document).ready(function() {
+  $('#banktransfer_instructions').on("click", function(event) {
+    newwindow = window.open($(this).attr('href'), 'bank transfer', 'left=20,top=20,width=650,height=750,toolbar=0,resizable=0,scrollbars=1');
+    if (window.focus) {
+      newwindow.focus();
+    }
+    return false;
+  });
+
+  var options = $.extend(
+    {}, // empty object
+    $.datepicker.regional['<%= I18n.default_locale %>'], // I18n locale
+    {dateFormat: '<%= Spree.t(:js_format, :scope => "date_picker", :default => "yy/mm/dd") %>',
+     firstDay: '<%= Spree.t(:first_day, :scope => "date_picker", :default => "0") %>'}
+  );
+  $.datepicker.setDefaults(options);
+  $('[name="payment[deposited_on]"]').datepicker();
+
+  $('.add_bt_details').on("click", function() {
+    $(this).hide();
+    $('.bt_payment_form').show();
+  });
+
+  $('.bt_payment_form input[type="submit"]').on("click", function(event) {
+    var empty_fields = $('.required_field').filter(function() { return !$(this).val().trim().length }), empty_fields_names = []
+    if ($(empty_fields).length) {
+      $(empty_fields).each(function() {
+        empty_fields_names.push($(this).attr('field-name'));
+      });
+
+      alert(empty_fields_names.join(', ') + " can't be blank");
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+<<<<<<< HEAD:app/assets/javascripts/store/spree_bank_transfer.js.erb
+=======
+
+>>>>>>> 234d9fad5df03b8b96765a1d5958bb9795226a8d:app/assets/javascripts/spree/frontend/spree_bank_transfer.js.erb
