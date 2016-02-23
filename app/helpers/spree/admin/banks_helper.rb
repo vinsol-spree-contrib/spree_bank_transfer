@@ -10,6 +10,10 @@ module Spree
         bank.active? ? Spree.t(:deactivate) : Spree.t(:activate)
       end
 
+      def action_text_to_toggle_bank_status(bank)
+        bank.active? ? 'remove-sign' : 'ok-sign'
+      end
+
     end
   end
 end
