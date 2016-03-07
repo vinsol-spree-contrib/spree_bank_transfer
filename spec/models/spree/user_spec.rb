@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe Spree::User do
-  it { should have_many(:payments).through(:orders) }
+describe Spree::User, type: :model do
+  it { is_expected.to have_many(:payments).through(:orders) }
 end

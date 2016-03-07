@@ -1,6 +1,6 @@
 module Spree
   class PaymentMethod::BankTransfer < PaymentMethod
-    
+
     def actions
       %w{capture void}
     end
@@ -16,20 +16,26 @@ module Spree
     end
 
     def capture(*args)
-      ActiveMerchant::Billing::Response.new(true, "", {}, {})
+      simulated_successful_billing_response
     end
 
     def void(*args)
-      ActiveMerchant::Billing::Response.new(true, "", {}, {})
+      simulated_successful_billing_response
     end
 
     def source_required?
       false
     end
-      
-    def credit(money, credit_card, response_code, options = {})
-      ActiveMerchant::Billing::Response.new(true, "", {}, {})
+
+    def credit(*args)
+      simulated_successful_billing_response
     end
+
+    private
+
+      def simulated_successful_billing_response
+        ActiveMerchant::Billing::Response.new(true, "", {}, {})
+      end
   end
-  
+
 end
