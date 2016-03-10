@@ -15,6 +15,7 @@ ENV['RAILS_ENV'] = 'test'
 require File.expand_path('../dummy/config/environment.rb',  __FILE__)
 
 require 'rspec/rails'
+require 'shoulda/matchers'
 require 'database_cleaner'
 require 'ffaker'
 
@@ -30,6 +31,13 @@ require 'spree/testing_support/url_helpers'
 
 # Requires factories defined in lib/spree_favorite_products/factories.rb
 # require 'spree_favorite_products/factories'
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
+end
 
 RSpec.configure do |config|
   # config.include FactoryGirl::Syntax::Methods
@@ -67,7 +75,7 @@ RSpec.configure do |config|
   end
 
   # Before each spec check if it is a Javascript test and switch between using database transactions or not where necessary.
-  config.before :each do
+  config.before :each do |example|
     DatabaseCleaner.strategy = example.metadata[:js] ? :truncation : :transaction
     DatabaseCleaner.start
   end
@@ -78,4 +86,8 @@ RSpec.configure do |config|
   end
 
   config.fail_fast = ENV['FAIL_FAST'] || false
+
+  config.include Spree::TestingSupport::ControllerRequests, type: :controller
+
+  config.infer_spec_type_from_file_location!
 end

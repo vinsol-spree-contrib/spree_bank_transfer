@@ -14,13 +14,13 @@ module Spree
     end
 
     def find_payment
-      @payment = spree_current_user.payments.where(:id => params[:id]).first
+      @payment = spree_current_user.payments.find_by(number: params[:id])
       unless @payment
         flash[:error] = Spree.t(:payment_not_found)
         redirect_to :back
       end
     end
-    
+
     private
       def payment_params
         params.require(:payment).permit(:deposited_on, :bank_name, :account_no, :transaction_reference_no)

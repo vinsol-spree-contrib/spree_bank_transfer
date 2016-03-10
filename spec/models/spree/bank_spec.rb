@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Spree::Bank do
-  it { should validate_presence_of :name }
-  it { should validate_presence_of :account_no }
-  it { should validate_uniqueness_of(:account_no).scoped_to(:name) }
+describe Spree::Bank, type: :model do
+  it { is_expected.to validate_presence_of :name }
+  it { is_expected.to validate_presence_of :account_no }
+  it { is_expected.to validate_uniqueness_of(:account_no).scoped_to(:name) }
 
   describe ".active" do
     before(:each) do
@@ -13,7 +13,7 @@ describe Spree::Bank do
     end
 
     it "returns active banks" do
-      Spree::Bank.active.should =~([@active_bank1, @active_bank2])
+      expect(Spree::Bank.active).to match([@active_bank1, @active_bank2])
     end
   end
 end
