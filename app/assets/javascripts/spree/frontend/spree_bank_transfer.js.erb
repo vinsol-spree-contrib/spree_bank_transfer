@@ -11,8 +11,8 @@ $(document).ready(function() {
   var options = $.extend(
     {}, // empty object
     $.datepicker.regional['<%= I18n.default_locale %>'], // I18n locale
-    {dateFormat: '<%= Spree.t(:js_format, :scope => "date_picker", :default => "yy/mm/dd") %>',
-     firstDay: '<%= Spree.t(:first_day, :scope => "date_picker", :default => "0") %>'}
+    {dateFormat: '<%= Spree.t(:js_format, scope: "date_picker", default: "yy/mm/dd") %>',
+     firstDay: '<%= Spree.t(:first_day, scope: "date_picker", default: "0") %>'}
   );
   $.datepicker.setDefaults(options);
   $('[name="payment[deposited_on]"]').datepicker();

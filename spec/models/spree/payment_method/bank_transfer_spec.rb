@@ -3,8 +3,8 @@ require 'spec_helper'
 describe Spree::PaymentMethod::BankTransfer do
   before(:each) do
     @order = Spree::Order.new
-    @payment_method = Spree::PaymentMethod::BankTransfer.create! :name => "Bank Transfer", :environment => Rails.env, :active => true
-    @payment = Spree::Payment.new :amount => 0.0
+    @payment_method = Spree::PaymentMethod::BankTransfer.create! name: "Bank Transfer", active: true
+    @payment = Spree::Payment.new amount: 0.0
     @payment.order = @order
     @payment.payment_method = @payment_method
     @payment.save!
@@ -12,7 +12,7 @@ describe Spree::PaymentMethod::BankTransfer do
 
   describe "#actions" do
     it "returns actions" do
-      @payment_method.actions.should eq(["capture", "void"])
+      expect(@payment_method.actions).to eq(["capture", "void"])
     end
   end
 
@@ -24,7 +24,7 @@ describe Spree::PaymentMethod::BankTransfer do
       end
 
       it "returns true" do
-        @payment_method.can_capture?(@payment).should be_true
+        expect(@payment_method.can_capture?(@payment)).to be true
       end
     end
 
@@ -35,7 +35,7 @@ describe Spree::PaymentMethod::BankTransfer do
       end
 
       it "returns true" do
-        @payment_method.can_capture?(@payment).should be_true
+        expect(@payment_method.can_capture?(@payment)).to be true
       end
 
     end
@@ -47,11 +47,11 @@ describe Spree::PaymentMethod::BankTransfer do
       end
 
       it "returns false" do
-        @payment_method.can_capture?(@payment).should be_false
+        expect(@payment_method.can_capture?(@payment)).to be false
       end
     end
   end
-  
+
   describe "#can_void?" do
     context "when payment state is not void" do
       before(:each) do
@@ -60,7 +60,7 @@ describe Spree::PaymentMethod::BankTransfer do
       end
 
       it "returns true" do
-        @payment_method.can_void?(@payment).should be_true
+        expect(@payment_method.can_void?(@payment)).to be true
       end
     end
 
@@ -70,34 +70,44 @@ describe Spree::PaymentMethod::BankTransfer do
       end
 
       it "returns false" do
-        @payment_method.can_void?(@payment).should be_false
+        expect(@payment_method.can_void?(@payment)).to be false
       end
     end
   end
 
   describe "#capture" do
     it "creates a new active merchant billing response" do
-      ActiveMerchant::Billing::Response.should_receive(:new).with(true, "", {}, {})
+      expect(ActiveMerchant::Billing::Response).to receive(:new).with(true, "", {}, {})
       @payment_method.capture
     end
     it "returns active merchant billing response" do
-      @payment_method.capture.should be_a(ActiveMerchant::Billing::Response)
+      expect(@payment_method.capture).to be_a(ActiveMerchant::Billing::Response)
     end
   end
 
   describe "#void" do
     it "creates a new active merchant billing response" do
-      ActiveMerchant::Billing::Response.should_receive(:new).with(true, "", {}, {})
+      expect(ActiveMerchant::Billing::Response).to receive(:new).with(true, "", {}, {})
       @payment_method.void
     end
     it "returns active merchant billing response" do
-      @payment_method.void.should be_a(ActiveMerchant::Billing::Response)
+      expect(@payment_method.void).to be_a(ActiveMerchant::Billing::Response)
     end
   end
 
   describe "#source_required?" do
     it "returns false" do
-      @payment_method.source_required?.should be_false
+      expect(@payment_method.source_required?).to be false
+    end
+  end
+
+  describe "#credit" do
+    it "creates a new active merchant billing response" do
+      expect(ActiveMerchant::Billing::Response).to receive(:new).with(true, "", {}, {})
+      @payment_method.credit
+    end
+    it "returns active merchant billing response" do
+      expect(@payment_method.credit).to be_a(ActiveMerchant::Billing::Response)
     end
   end
 

@@ -1,0 +1,16 @@
+<% if (banks = Spree::Bank.active).present? %>
+  <table class="table index">
+    <tr>
+      <th><%= Spree.t(:bank_name) %></th>
+      <th><%= Spree.t(:account_no) %></th>
+      <th><%= Spree.t(:additional_details) %></th>
+    </tr>
+    <% banks.each do |bank| %>
+      <tr>
+        <td><%= bank.name %></td>
+        <td><%= bank.account_no %></td>
+        <td><%= bank.additional_details %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

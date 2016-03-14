@@ -1,18 +1,18 @@
-<%= render :partial => 'spree/admin/shared/sub_menu/configuration' %>
+<%= render partial: 'spree/admin/shared/sub_menu/configuration' %>
 
 <% content_for :page_title do %>
   <%= Spree.t(:new_bank) %>
 <% end %>
 
 <% content_for :page_actions do %>
-  <%= link_to_with_icon 'arrow-left', Spree.t(:back_to_banks_list), admin_banks_path, :class => 'btn btn-primary' %>
+  <%= link_to_with_icon 'arrow-left', Spree.t(:back_to_banks_list), admin_banks_path, class: 'btn btn-primary' %>
 <% end %>
 
-<%= render :partial => 'spree/admin/shared/error_messages', :locals => { :target => @bank } %>
+<%= render partial: 'spree/admin/shared/error_messages', locals: { target: @bank } %>
 
 <%= form_for [:admin, @bank] do |f| %>
   <fieldset>
-    <%= render :partial => 'form', :locals => { :f => f } %>
-    <%= render :partial => 'spree/admin/shared/new_resource_links' %>
+    <%= render partial: 'form', locals: { f: f } %>
+    <%= render partial: 'spree/admin/shared/new_resource_links' %>
   </fieldset>
 <% end %>

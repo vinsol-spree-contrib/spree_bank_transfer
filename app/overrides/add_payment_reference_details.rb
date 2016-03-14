@@ -1,8 +1,8 @@
 Deface::Override.new(
-  :virtual_path => 'spree/admin/payments/_list',
-  :name => 'add_payment_reference_details',
-  :insert_after => "table.index",
-  :text => %q{
+  virtual_path: 'spree/admin/payments/_list',
+  name: 'add_payment_reference_details',
+  insert_after: "#payments",
+  text: %q{
     <% if bank_transfer_payment = @order.payments.from_bank_transfer.first %>
       <fieldset class="no-border-bottom" >
         <legend align="center"><%= Spree.t(:payment_reference_details) %></legend>
@@ -29,7 +29,3 @@ Deface::Override.new(
     <% end %>
   }
 )
-
-
-
-
