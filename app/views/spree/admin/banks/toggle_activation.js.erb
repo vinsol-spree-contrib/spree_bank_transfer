@@ -4,7 +4,7 @@
   <% btn_class = "btn " + action_class + " btn-sm" %>
   <% status = @bank.active ? "active" : "inactive" %>
   <% bank_id = "bank-" + @bank[:id].to_s %>
-  $('#toggle-status-<%= @bank.id %>').html('<%= link_to_with_icon(action_text_to_toggle_bank_status(@bank), action_to_toggle_bank_status(@bank), toggle_activation_admin_bank_path(@bank), {:class => btn_class, :id => bank_id, :rel => status, :remote => true, :method => :put}) %>')
+  $('#toggle-status-<%= @bank.id %>').html('<%= link_to_with_icon(action_text_to_toggle_bank_status(@bank), action_to_toggle_bank_status(@bank), toggle_activation_admin_bank_path(@bank), {class: btn_class, id: bank_id, rel: status, remote: true, method: :put}) %>')
 <% else %>
   alert('<%= @bank.errors.full_messages.to_sentence %>')
 <% end %>

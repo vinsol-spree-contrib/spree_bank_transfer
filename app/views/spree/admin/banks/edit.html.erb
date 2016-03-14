@@ -2,11 +2,11 @@
   <%= Spree.t(:editing_resource, resource: Spree::Bank.model_name.human) %> / <%= @bank.name %>
 <% end %>
 
-<%= render :partial => 'spree/admin/shared/error_messages', :locals => { :target => @bank } %>
+<%= render partial: 'spree/admin/shared/error_messages', locals: { target: @bank } %>
 
-<%= form_for @bank, :url => admin_bank_path(@bank) do |f| %>
+<%= form_for @bank, url: admin_bank_path(@bank) do |f| %>
   <fieldset>
-    <%= render :partial => 'form', :locals => { :f => f } %>
+    <%= render partial: 'form', locals: { f: f } %>
     <div data-hook="buttons" class="actions">
       <%= button Spree.t('actions.update'), 'save' %>
     </div>

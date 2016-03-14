@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Spree::Admin::BanksController, type: :controller do
 
-  let(:role) { Spree::Role.create!(:name => 'user') }
+  let(:role) { Spree::Role.create!(name: 'user') }
   let(:roles) { [role] }
 
   before(:each) do
@@ -53,7 +53,7 @@ describe Spree::Admin::BanksController, type: :controller do
     end
 
     def send_request
-      put :toggle_activation, :id => "1", :format => :js
+      put :toggle_activation, id: "1", format: :js
     end
 
     it "toggles activation status of bank" do

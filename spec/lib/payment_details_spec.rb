@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe PaymentDetails do
   before do
-    @payment = mock_model(Spree::Payment, :update_attributes => true, :validate_bank_details= => nil)
+    @payment = mock_model(Spree::Payment, update_attributes: true, :validate_bank_details= => nil)
     @params = { 'bank_name' => 'bank_name', 'account_no' => "account_no", 'transaction_reference_no' => "transaction_reference_no" }
     @payment_details = PaymentDetails.new(@payment, @params)
   end

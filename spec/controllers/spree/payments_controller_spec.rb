@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Spree::PaymentsController, type: :controller do
   before do
     allow(controller).to receive(:authenticate_spree_user!).and_return(true)
-    @user = mock_model(Spree::User, :generate_spree_api_key! => false, :last_incomplete_spree_order => nil)
+    @user = mock_model(Spree::User, :generate_spree_api_key! => false, last_incomplete_spree_order: nil)
     allow(controller).to receive(:spree_current_user).and_return(@user)
 
     @payment = mock_model(Spree::Payment)
@@ -43,12 +43,12 @@ describe Spree::PaymentsController, type: :controller do
 
   describe "PATCH update" do
     before do
-      @payment_details = double('payment_details', :save => true)
+      @payment_details = double('payment_details', save: true)
       allow(PaymentDetails).to receive(:new).and_return(@payment_details)
     end
 
     def send_request
-      patch :update, :id => 'payment_id', :payment => { :bank_name => 'bank_name', :account_no => "account_no", :transaction_reference_no => "transaction_reference_no" }
+      patch :update, id: 'payment_id', payment: { bank_name: 'bank_name', account_no: "account_no", transaction_reference_no: "transaction_reference_no" }
     end
 
     it_behaves_like "request which finds payment"
@@ -91,7 +91,7 @@ describe Spree::PaymentsController, type: :controller do
 
   describe "#payment_params" do
     it "permits only bank_name, account_no, transaction_reference_no, deposited_on" do
-      controller.params = { :payment => { :bank_name => 'Bank Name', :account_no => 'Account number', :transaction_reference_no => "transaction reference number", :order_id => 'order_id', :deposited_on => 'deposited_on' } }
+      controller.params = { payment: { bank_name: 'Bank Name', account_no: 'Account number', transaction_reference_no: "transaction reference number", order_id: 'order_id', deposited_on: 'deposited_on' } }
       expect(controller.send(:payment_params)).to eq({ "bank_name" => "Bank Name", "account_no" => "Account number", "transaction_reference_no" => "transaction reference number", 'deposited_on' => 'deposited_on' })
     end
   end
