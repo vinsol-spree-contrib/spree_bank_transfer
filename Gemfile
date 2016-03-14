@@ -5,10 +5,8 @@ version = '3-0-stable'
 gem 'spree', github: 'spree/spree', branch: version
 gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: version
 
-# group :assets do
-  gem 'coffee-rails', '4.0.1'
-  gem 'sass-rails', '~> 5.0.1'
-# end
+gem 'coffee-rails', ' ~> 4.0.1'
+gem 'sass-rails', '~> 5.0.1'
 
 group :test do
   gem 'minitest'
