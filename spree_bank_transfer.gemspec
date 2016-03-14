@@ -18,5 +18,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'spree_core', '~> 3.0.0'
   s.add_dependency 'sqlite3', '~> 1.3.10'
+  s.add_development_dependency 'mysql2'
+  s.add_development_dependency 'pg'
 
 end
