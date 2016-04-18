@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Spree::PaymentsController, type: :controller do
   before do
     allow(controller).to receive(:authenticate_spree_user!).and_return(true)
-    @user = mock_model(Spree::User, :generate_spree_api_key! => false, last_incomplete_spree_order: nil)
+    @user = mock_model(Spree.user_class, :generate_spree_api_key! => false, last_incomplete_spree_order: nil)
     allow(controller).to receive(:spree_current_user).and_return(@user)
 
     @payment = mock_model(Spree::Payment)
