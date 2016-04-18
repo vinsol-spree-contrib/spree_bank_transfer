@@ -6,7 +6,7 @@ describe Spree::Admin::BanksController, type: :controller do
   let(:roles) { [role] }
 
   before(:each) do
-    @user = mock_model(Spree::User, :generate_spree_api_key! => false)
+    @user = mock_model(Spree.user_class, :generate_spree_api_key! => false)
     allow(@user).to receive_message_chain(:roles, :includes).and_return([])
     allow(@user).to receive(:has_spree_role?).with('admin').and_return(true)
     allow(controller).to receive(:spree_user_signed_in?).and_return(true)
