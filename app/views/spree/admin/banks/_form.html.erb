@@ -13,12 +13,12 @@
 
     <%= f.field_container :iban do %>
       <%= f.label :iban, Spree.t(:iban) %><span class="required">*</span><br />
-      <%= f.text_field :iban, :class => 'fullwidth' %>
+      <%= f.text_field :iban, :class => 'form-control' %>
     <% end %>
     
     <%= f.field_container :bic do %>
       <%= f.label :bic, Spree.t(:bic) %><span class="required">*</span><br />
-      <%= f.text_field :bic, :class => 'fullwidth' %>
+      <%= f.text_field :bic, :class => 'form-group' %>
     <% end %>
 
     <%= f.field_container :additional_details, class: ['form-group'] do %>
