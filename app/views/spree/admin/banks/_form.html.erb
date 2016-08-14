@@ -11,6 +11,16 @@
       <%= f.text_field :account_no, class: 'form-control' %>
     <% end %>
 
+    <%= f.field_container :iban do %>
+      <%= f.label :iban, Spree.t(:iban) %><span class="required">*</span><br />
+      <%= f.text_field :iban, :class => 'form-control' %>
+    <% end %>
+    
+    <%= f.field_container :bic do %>
+      <%= f.label :bic, Spree.t(:bic) %><span class="required">*</span><br />
+      <%= f.text_field :bic, :class => 'form-control' %>
+    <% end %>
+
     <%= f.field_container :additional_details, class: ['form-group'] do %>
       <%= f.label :additional_details, Spree.t(:additional_details) %><br />
       <%= f.text_area :additional_details, rows: 10, class: 'form-control' %>

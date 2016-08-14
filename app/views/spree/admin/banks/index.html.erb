@@ -15,6 +15,8 @@
       <tr data-hook="admin_banks_index_headers">
         <th><%= Spree.t(:bank_name) %></th>
         <th><%= Spree.t(:account_no) %></th>
+        <th><%= Spree.t(:iban) %></th>
+        <th><%= Spree.t(:bic) %></th>
         <th><%= Spree.t(:additional_details) %></th>
         <th><%= Spree.t(:status) %></th>
       </tr>
@@ -24,6 +26,8 @@
         <tr id="<%= spree_dom_id bank %>" data-hook="admin_banks_index_rows">
           <td><%= bank.name %></td>
           <td><%= bank.account_no %></td>
+          <td><%= bank.iban %></td>
+          <td><%= bank.bic %></td>
           <td><%= bank.additional_details %></td>
           <td id='active-status-<%= bank.id %>'><%= bank_status(bank) %></td>
           <td data-hook="admin_banks_index_row_status" id='toggle-status-<%= bank.id %>' class="actions actions-2 text-right">
