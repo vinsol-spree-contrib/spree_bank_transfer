@@ -39,6 +39,8 @@ How it works:
    Configuration -> Payment Methods -> New payment Method
    
    You need to select “Spree::PaymentMethod::BankTransfer” as the Provider
+   
+      ![Bank Transfer - Payment Method](https://s3.amazonaws.com/gems-and-extensions-screenshots/Bank+Transfer/Bank-Transfer-Payment-Method.png)
 
 * Add bank account information from “Banks” link on “Configuration” page.
   
@@ -54,7 +56,7 @@ How it works:
 
 *  Active merchant **accounts number** will also be visible on Checkout page under this method.
 
-    ![Checkout](http://vinsol.com/gems_screenshots/spree-bank-transfer/checkout.png)
+       ![Checkout](https://s3.amazonaws.com/gems-and-extensions-screenshots/Bank+Transfer/Checkout.png)
 
 **“How Bank  Transfer Works” link will open a pop-up window. It will list all steps to complete order with this method.**
 
@@ -65,13 +67,13 @@ How it works:
 
      My Account -> Order no. -> Add details (Payment information column) -> Submit
      
-     ![Order](http://vinsol.com/gems_screenshots/spree-bank-transfer/order.png)
+        ![Order](https://s3.amazonaws.com/gems-and-extensions-screenshots/Bank+Transfer/checkout-1.png)
 
 * Admin will be able to see the payment reference details, added by customer, on the Order detail page.
 
        Orders -> Order no. ->  Payments
        
-       ![Payments](http://vinsol.com/gems_screenshots/spree-bank-transfer/payments.png)
+       ![Payments](https://s3.amazonaws.com/gems-and-extensions-screenshots/Bank+Transfer/admin-payment.png)
 
 * The order will not be marked Completed  until admin captures the payment as mentioned in step above.
 
@@ -79,7 +81,7 @@ How it works:
 
 * Admin can filter orders which has payment transaction reference number by clicking the check box “only show orders with   bank transfer payment reference number” on “Orders” page.
 
-      ![Orders](http://vinsol.com/gems_screenshots/spree-bank-transfer/orders.png)
+      ![Orders](https://s3.amazonaws.com/gems-and-extensions-screenshots/Bank+Transfer/order-filter.png)
 
 
 
@@ -101,7 +103,7 @@ Testing
 
 Be sure to bundle your dependencies and then create a dummy test app for the specs to run against.
 
-```shell
+```shell 
 bundle
 bundle exec rake test_app
 bundle exec rspec spec
@@ -119,5 +121,5 @@ Credits
 -------
 
 [![vinsol.com: Ruby on Rails, iOS and Android developers](http://vinsol.com/vin_logo.png "Ruby on Rails, iOS and Android developers")](http://vinsol.com)
-
+ 
 Copyright (c) 2014 [vinsol.com](http://vinsol.com "Ruby on Rails, iOS and Android developers"), released under the New MIT License
