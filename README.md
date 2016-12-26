@@ -67,7 +67,7 @@ How it works:
 
      My Account -> Order no. -> Add details (Payment information column) -> Submit
      
-        ![Order](https://s3.amazonaws.com/gems-and-extensions-screenshots/Bank+Transfer/checkout-1.png)
+     ![Payment Info](https://s3.amazonaws.com/gems-and-extensions-screenshots/Bank+Transfer/checkout-1.png)
 
 * Admin will be able to see the payment reference details, added by customer, on the Order detail page.
 
