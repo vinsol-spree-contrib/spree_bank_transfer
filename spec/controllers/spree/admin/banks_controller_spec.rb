@@ -25,9 +25,6 @@ describe Spree::Admin::BanksController, type: :controller do
 
     def send_request
       get :index
-
-
-
     end
 
     it "assigns @banks" do
@@ -53,7 +50,7 @@ describe Spree::Admin::BanksController, type: :controller do
     end
 
     def send_request
-      put :toggle_activation, id: "1", format: :js
+      put :toggle_activation, params: { id: "1" }, as: :js
     end
 
     it "toggles activation status of bank" do

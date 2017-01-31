@@ -15,6 +15,33 @@ gem 'spree-bank-transfer', require: 'spree_bank_transfer'
 
 For older versions of Spree.
 ```ruby
+# Spree 3.2.x
+gem 'spree-bank-transfer', '3.2.0', require: 'spree_bank_transfer'
+
+or
+
+gem 'spree-bank-transfer', require: 'spree_bank_transfer', github: 'vinsol-spree-contrib/spree_bank_transfer', branch: 'master'
+```
+
+```ruby
+# Spree 3.1.x
+gem 'spree-bank-transfer', '3.1.0', require: 'spree_bank_transfer'
+
+or
+
+gem 'spree-bank-transfer', require: 'spree_bank_transfer', github: 'vinsol-spree-contrib/spree_bank_transfer', branch: '3-1-stable'
+```
+
+```ruby
+# Spree 3.0.x
+gem 'spree-bank-transfer', '3.0.0', require: 'spree_bank_transfer'
+
+or
+
+gem 'spree-bank-transfer', require: 'spree_bank_transfer', github: 'vinsol-spree-contrib/spree_bank_transfer', branch: '3-0-stable'
+```
+
+```ruby
 # Spree 2.1.0
 gem 'spree-bank-transfer', '2.1.0', require: 'spree_bank_transfer'
 ```
