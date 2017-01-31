@@ -55,7 +55,8 @@ describe Spree::PaymentsController, type: :controller do
 
 
     it "creates new payment details" do
-      expect(PaymentDetails).to receive(:new).with(@payment, { 'bank_name' => 'bank_name', 'account_no' => "account_no", 'transaction_reference_no' => "transaction_reference_no" })
+      pr = ActionController::Parameters.new('payment' => { 'bank_name' => 'bank_name', 'account_no' => "account_no", 'transaction_reference_no' => "transaction_reference_no" }).require(:payment).permit!
+      expect(PaymentDetails).to receive(:new).with(@payment, pr)
       send_request
     end
 
