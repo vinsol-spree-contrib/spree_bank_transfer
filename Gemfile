@@ -13,7 +13,7 @@ group :test do
   gem 'shoulda-matchers', '~> 3.1.1'
   gem 'rspec-activemodel-mocks', '~> 1.0.3'
   gem 'simplecov', require: false
-  gem 'database_cleaner'
-  gem 'rails-controller-testing'
+  gem 'database_cleaner', '~> 1.5.3'
+  gem 'rails-controller-testing', '~> 1.0.1'
 end
 gemspec
