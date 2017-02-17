@@ -14,7 +14,7 @@ module Spree
     end
 
     def find_payment
-      @payment = spree_current_user.payments.where(:id => params[:id]).first
+      @payment = spree_current_user.payments.where(number: params[:id]).first
       unless @payment
         flash[:error] = Spree.t(:payment_not_found)
         redirect_to :back

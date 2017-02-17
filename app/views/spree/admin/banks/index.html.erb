@@ -34,7 +34,7 @@
             <%= link_to_with_icon(action_text_to_toggle_bank_status(bank), action_to_toggle_bank_status(bank), toggle_activation_admin_bank_path(bank), {class: btn_class, id: bank_id, rel: status, remote: true, method: :put}) %>
           </td>
           <td data-hook="admin_banks_index_row_actions" class="actions actions-2 text-right">
-            <%= link_to_edit if can? :edit, bank %>
+            <%= (link_to_edit bank) if can?(:edit, bank) %>
           </td>
         </tr>
       <% end %>
