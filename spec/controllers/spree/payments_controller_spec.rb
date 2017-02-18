@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe Spree::PaymentsController, type: :controller do
+  # Refer http://stackoverflow.com/a/38233837/306686
+  ## Added to get around redirect_to deprectaion warning for Rspec
+  let(:back) { "http://localhost" }
+
   before do
     allow(controller).to receive(:authenticate_spree_user!).and_return(true)
     @user = mock_model(Spree::User, :generate_spree_api_key! => false, last_incomplete_spree_order: nil)
@@ -9,7 +13,7 @@ describe Spree::PaymentsController, type: :controller do
     @payment = mock_model(Spree::Payment)
     @current_user_payments = double("current_user_payments", find_by: @payment)
     allow(@user).to receive(:payments).and_return(@current_user_payments)
-    request.env["HTTP_REFERER"] = "http://localhost"
+    request.env["HTTP_REFERER"] = back
   end
 
   shared_examples_for "request which finds payment" do
@@ -36,7 +40,7 @@ describe Spree::PaymentsController, type: :controller do
 
       it "redirects to back" do
         send_request
-        expect(response).to redirect_to(:back)
+        expect(response).to redirect_to(back)
       end
     end
   end
@@ -48,14 +52,15 @@ describe Spree::PaymentsController, type: :controller do
     end
 
     def send_request
-      patch :update, id: 'payment_id', payment: { bank_name: 'bank_name', account_no: "account_no", transaction_reference_no: "transaction_reference_no" }
+      patch :update, params: {id: 'payment_id', payment: { bank_name: 'bank_name', account_no: "account_no", transaction_reference_no: "transaction_reference_no" }}
     end
 
     it_behaves_like "request which finds payment"
 
 
     it "creates new payment details" do
-      expect(PaymentDetails).to receive(:new).with(@payment, { 'bank_name' => 'bank_name', 'account_no' => "account_no", 'transaction_reference_no' => "transaction_reference_no" })
+      pr = ActionController::Parameters.new('payment' => { 'bank_name' => 'bank_name', 'account_no' => "account_no", 'transaction_reference_no' => "transaction_reference_no" }).require(:payment).permit!
+      expect(PaymentDetails).to receive(:new).with(@payment, pr)
       send_request
     end
 
@@ -85,14 +90,14 @@ describe Spree::PaymentsController, type: :controller do
 
     it "redirects to back" do
       send_request
-      expect(response).to redirect_to(:back)
+      expect(response).to redirect_to(back)
     end
   end
 
   describe "#payment_params" do
     it "permits only bank_name, account_no, transaction_reference_no, deposited_on" do
       controller.params = { payment: { bank_name: 'Bank Name', account_no: 'Account number', transaction_reference_no: "transaction reference number", order_id: 'order_id', deposited_on: 'deposited_on' } }
-      expect(controller.send(:payment_params)).to eq({ "bank_name" => "Bank Name", "account_no" => "Account number", "transaction_reference_no" => "transaction reference number", 'deposited_on' => 'deposited_on' })
+      expect(controller.send(:payment_params).to_h).to eq({ "bank_name" => "Bank Name", "account_no" => "Account number", "transaction_reference_no" => "transaction reference number", 'deposited_on' => 'deposited_on' })
     end
   end
 end
