@@ -1,7 +1,11 @@
 /*
-*= require jquery.ui.datepicker
+ *= require jquery-ui
+ *= require jquery-ui/datepicker
 */
-
+.ui-datepicker { 
+  width: 18em; /* fix calendar width */
+  padding: .2em .2em 0; 
+} 
 .bt_payment_form { margin-left: -10px; }
 .bt_payment_form table { border-collapse: inherit; }
 .bt_payment_form [type="submit"] { margin-left: 10px; }
