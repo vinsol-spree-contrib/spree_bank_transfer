@@ -1,7 +1,7 @@
 module Spree
   class PaymentsController < Spree::StoreController
-    before_filter :authenticate_spree_user!
-    before_filter :find_payment
+    before_action :authenticate_spree_user!
+    before_action :find_payment
 
     def update
       payment_details = PaymentDetails.new(@payment, payment_params)
