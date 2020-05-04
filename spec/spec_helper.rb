@@ -12,7 +12,12 @@ end
 # Configure Rails Environment
 ENV['RAILS_ENV'] = 'test'
 
-require File.expand_path('../dummy/config/environment.rb',  __FILE__)
+begin
+  require File.expand_path('../dummy/config/environment', __FILE__)
+rescue LoadError
+  puts 'Could not load dummy application. Please ensure you have run `bundle exec rake test_app`'
+  exit
+end
 
 require 'rspec/rails'
 require 'shoulda/matchers'

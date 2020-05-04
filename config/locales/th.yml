@@ -1,0 +1,27 @@
+en:
+  spree:
+    account_no: เลขบัญชี
+    add_details: แนบสลิป
+    additional_details: รายละเอียดเพิ่มเติม
+    back_to_banks_list: กลับไปยังรายการธนาคาร
+    banks: กลับไปยังรายการธนาคาร
+    bank_name: ชื่อธนาคาร
+    confirm_details_submit: Are you sure you want to Submit these details? You will not be able to Edit these details once Submitted. Press 'OK' to confirm.
+    deactivate: ปิดการใช้งาน
+    deposited_on: วันที่โอนเงิน
+    how_bank_transfer_works: วิธีการชำระเงินโดยวิธี "โอนเงินผ่านธนาคาร"
+    listing_banks: รายการธนาคาร
+    new_bank: เพิ่มธนาคาร
+    only_show_orders_with_bank_transfer_payment_reference_number: Only show orders with bank transfer payment reference number
+    payment_not_found: ไม่พบการชำระเงิน
+    payment_successfully_updated: แนบหลักฐานการชำระเงินสำเร็จ
+    payment_reference_details: Bank Transfer Payment Reference Details
+    transaction_reference_no: Transaction Reference No
+    receipt: "ใบเสร็จ"
+    view_receipt: "ดูใบเสร็จ"
+    bank_transfer_completed: แจ้งชำระเงินเรียบร้อยแล้ว
+  activerecord:
+    models:
+      spree/bank:
+        one: ธนาคาร
+        other: ธนาคาร

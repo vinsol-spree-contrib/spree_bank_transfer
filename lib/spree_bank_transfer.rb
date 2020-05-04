@@ -1,2 +1,6 @@
 require 'spree_core'
+require 'rails/generators'
 require 'spree_bank_transfer/engine'
+require 'spree_bank_transfer/version'
+require 'spree_extension'
+require 'deface'

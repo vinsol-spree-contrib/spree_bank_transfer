@@ -1,34 +1,38 @@
-<h4>HOW BANK TRANSFER WORKS</h4>
-<b>Steps:</b>
-<ol>
-  <li>Deposit order total in one of the below mentioned bank accounts. After this payment a payment reference number will be provided by the bank.
-    <% if (banks = Spree::Bank.active).any? %>
-      <div style="padding:20px 0">
-      <table border="1" align='center' width="80%">
-        <tr>
-          <th><%= Spree.t(:bank_name) %></th>
-          <th><%= Spree.t(:account_no) %></th>
-          <th><%= Spree.t(:additional_details) %></th>
-        </tr>
-        <% banks.each do |bank| %>
-          <tr>
-            <td><center><%= bank.name %></center></td>
-            <td><center><%= bank.account_no %></center></td>
-            <td><center><%= bank.additional_details %></center></td>
-          </tr>
-        <% end %>
-      </table>
-      </div>
-    <% end %>
-  </li>
-  <li>Enter this payment reference number on Order Details page by following steps:
-    <ol style="padding:10px 0 0 20px" type='a'>
-      <li>Go to "My Account" page.</li>
-      <li>Select Order for which you want to provide details.</li>
-      <li>Click on "Add Details" link visible in "Payment Information" column.</li>
-      <li>Provide payment details and Submit.</li>
-      <br><br>
-      <%= image_tag 'payment_details.png' %>
-    </ol>
-  </li>
-</ol>
+<div class="container mt-4 pb-3">
+  <h1 class="text-center h2">วิธีการชำระเงินโดยวิธี "โอนเงินผ่านธนาคาร"</h3>
+  <h4><strong>ขั้นตอนการแจ้งชำระเงิน:</strong></h4>
+  <ol>
+    <li>ชำระเงินเต็มจำนวนตามคำสั่งซื้อ ตามบัญชีธนาคารข้างล่าง
+      <% if (banks = Spree::Bank.active).any? %>
+        <div class="w-75">
+          <table class="table table-bordered">
+            <tr class="table-active">
+              <th><%= Spree.t(:bank_name) %></th>
+              <th><%= Spree.t(:account_no) %></th>
+              <th><%= Spree.t(:additional_details) %></th>
+            </tr>
+            <% banks.each do |bank| %>
+              <tr>
+                <td><%= bank.name %></td>
+                <td><%= bank.account_no %></td>
+                <td><%= bank.additional_details %></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      <% end %>
+    </li>
+    <li>แนบหลักฐานการโอนเงินผ่านระบบ
+      <ol>
+        <li>ไปยัง "บัญชีของฉัน" page.</li>
+        <li>เลือก คำสั่งซื้อ</li>
+        <li>คลิก "แนบหลักฐานการชำระเงิน"</li>
+        <li>กรอกข้อมูล และกด ยืนยัน</li>
+      </ol>
+    </li>
+  </ol>
+
+  <div class="w-100">
+    <%= image_tag 'payment_details.png', class: "w-75 img-thumbnail" %>
+  </div>
+</div>

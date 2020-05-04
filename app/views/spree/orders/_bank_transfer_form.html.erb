@@ -1,31 +1,40 @@
-<% if bank_transfer_payment = @order.payments.from_bank_transfer.first %>
+<% bank_transfer_payment = @order.payments.from_bank_transfer.first %>
+<% if bank_transfer_payment.present? %>
   <% unless bank_transfer_payment.details_submitted? %>
     <br>
     <%= link_to Spree.t(:add_details), "javascript:void(0);", class: 'button add_bt_details' %>
-  <% end %>
-  <%= form_for bank_transfer_payment, html: { class: "bt_payment_form", style: "#{bank_transfer_payment.details_submitted? ? '' : 'display:none;'}" } do |f| %>
-    <table>
-      <tr>
-        <td><%= Spree.t(:deposited_on) %></td><td><%= f.text_field :deposited_on, disabled: bank_transfer_payment.details_submitted?, class: 'required_field', 'field-name' => 'Deposited on' %></td>
-      </tr>
-      <tr>
-        <td><%= Spree.t(:bank_name) %></td><td><%= f.text_field :bank_name, disabled: bank_transfer_payment.details_submitted?, class: 'required_field', 'field-name' => 'Bank name' %></td>
-      </tr>
-      <tr>
-        <td><%= Spree.t(:account_no) %></td><td><%= f.text_field :account_no, disabled: bank_transfer_payment.details_submitted?, class: 'required_field', 'field-name' => 'Account No.' %></td>
-      </tr>
-      <tr>
-        <td><%= Spree.t(:transaction_reference_no) %></td><td><%= f.text_field :transaction_reference_no, disabled: bank_transfer_payment.details_submitted?, class: 'required_field', 'field-name' => 'Transaction Reference No.' %></td>
-      </tr>
-    </table>
-    <br>
-    <% unless bank_transfer_payment.details_submitted? %>
-      <%= f.submit "Submit", confirm: Spree.t(:confirm_details_submit)  %>
+    <%= form_for bank_transfer_payment, html: { class: "bt_payment_form", style: "#{bank_transfer_payment.details_submitted? ? '' : 'display:none;'}" } do |f| %>
+      <div class="row mx-0 my-3">
+        <div class="form-group col-12 px-0">
+          <%= f.label Spree.t(:deposited_on), class: 'mb-0' %>
+          <%= f.text_field :deposited_on, disabled: bank_transfer_payment.details_submitted?, class: 'required_field form-control form-control-sm' %>
+        </div>
+        <br>
+        <div class="form-group col-12 px-0">
+          <%= f.label Spree.t(:bank_name), class: 'mb-0' %>
+          <%= f.select :bank_name, options_for_select(Spree::Bank.pluck(:name)), {}, {disabled: bank_transfer_payment.details_submitted?, class: 'required_field form-control form-control-sm'} %>
+        </div>
+        <br>
+        <div class="form-group col-12 px-0">
+          <%= f.label Spree.t(:receipt), class: 'mb-0' %>
+          <%= f.file_field :receipt, disabled: bank_transfer_payment.details_submitted?, class: 'required_field form-control-file' %>
+        </div>
+        <br>
+        <div class="col-12 px-0">
+          <% unless bank_transfer_payment.details_submitted? %>
+            <%= f.submit "Submit", confirm: Spree.t(:confirm_details_submit), class: "btn btn-success btn-block btn-sm" %>
+          <% end %>
+        </div>
+      </div>
     <% end %>
+  <% else %>
+    <div class="my-3">
+      <p class="text-success font-weight-bold mb-0">
+        <i class="fas fa-check-circle"></i> <%= Spree.t(:bank_transfer_completed) %>
+      </p>
+      <p class="mb-0"><%= Spree.t(:deposited_on) %>: <%= bank_transfer_payment.deposited_on.strftime("%d/%m/%Y") %></p>
+      <p class="mb-0"><%= Spree.t(:bank_name) %>: <%= bank_transfer_payment.bank_name %></p>
+      <a href="<%= main_app.url_for(bank_transfer_payment.receipt) %>" target="_blank"><%= Spree.t(:view_receipt) %></a>
+    </div>
   <% end %>
-<% end %>
-
-
-<% if I18n.locale != :en %>
-  <%= javascript_include_tag "jquery-ui/datepicker-#{I18n.locale}" %>
 <% end %>

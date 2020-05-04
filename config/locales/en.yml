@@ -17,6 +17,7 @@ en:
     payment_successfully_updated: Payment successfully updated
     payment_reference_details: Bank Transfer Payment Reference Details
     transaction_reference_no: Transaction Reference No
+    receipt: "Receipt"
   activerecord:
     models:
       spree/bank:

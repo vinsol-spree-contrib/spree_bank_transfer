@@ -4,7 +4,7 @@ Deface::Override.new(
   insert_after: "#payment-method-fields",
   text: %q{
     <% if @order.available_payment_methods.any? { |pm| pm.type == 'Spree::PaymentMethod::BankTransfer' } %>
-      <p><%= link_to t(:how_bank_transfer_works), bank_transfer_instructions_path, id: 'banktransfer_instructions', target: "_blank" %></p>
+      <p><%= link_to Spree.t(:how_bank_transfer_works), bank_transfer_instructions_path, id: 'banktransfer_instructions', target: "_blank" %></p>
     <% end %>
   }
 )

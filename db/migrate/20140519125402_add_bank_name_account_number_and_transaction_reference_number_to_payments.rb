@@ -1,4 +1,4 @@
-class AddBankNameAccountNumberAndTransactionReferenceNumberToPayments < ActiveRecord::Migration
+class AddBankNameAccountNumberAndTransactionReferenceNumberToPayments < SpreeExtension::Migration[4.2]
   def change
     add_column :spree_payments, :bank_name, :string
     add_column :spree_payments, :account_no, :string
