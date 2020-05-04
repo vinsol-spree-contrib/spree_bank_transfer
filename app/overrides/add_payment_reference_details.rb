@@ -18,7 +18,11 @@ Deface::Override.new(
             <tr>
               <td class='align-center'><%= bank_transfer_payment.deposited_on %></td>
               <td class='align-center'><%= bank_transfer_payment.bank_name %></td>
-              <td class='align-center' width="450px"><%= image_tag main_app.url_for(bank_transfer_payment.receipt), class: "w-100" %></td>
+              <td class='align-center' width="450px">
+                <% if bank_transfer_payment.receipt.attached? %>
+                  <%= image_tag main_app.url_for(bank_transfer_payment.receipt), class: "w-100" %>
+                <% end %>
+              </td>
             </tr>
           </tbody>
         </table>
