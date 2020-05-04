@@ -6,22 +6,23 @@ Deface::Override.new(
     <% if bank_transfer_payment = @order.payments.from_bank_transfer.first %>
       <fieldset class="no-border-bottom" >
         <legend align="center"><%= Spree.t(:payment_reference_details) %></legend>
-        <table class="index">
+        <table class="index table">
           <thead>
-            <tr data-hook="payments_header">
+            <tr data-hook="payments_header" class="table-active">
               <th><%= Spree.t(:deposited_on) %></th>
               <th><%= Spree.t(:bank_name) %></th>
-              <th><%= Spree.t(:account_no) %></th>
-              <th><%= Spree.t(:transaction_reference_no) %></th>
-              <th class="actions"></th>
+              <th><%= Spree.t(:receipt) %></th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td class='align-center'><%= bank_transfer_payment.deposited_on %></td>
               <td class='align-center'><%= bank_transfer_payment.bank_name %></td>
-              <td class='align-center'><%= bank_transfer_payment.account_no %></td>
-              <td class='align-center'><%= bank_transfer_payment.transaction_reference_no %></td>
+              <td class='align-center' width="450px">
+                <% if bank_transfer_payment.receipt.attached? %>
+                  <%= image_tag main_app.url_for(bank_transfer_payment.receipt), class: "w-100" %>
+                <% end %>
+              </td>
             </tr>
           </tbody>
         </table>

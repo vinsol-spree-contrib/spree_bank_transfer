@@ -1,4 +1,4 @@
-class CreateTableBank < ActiveRecord::Migration
+class CreateTableBank < SpreeExtension::Migration[4.2]
   def change
     create_table :spree_banks do |t|
       t.string :name
